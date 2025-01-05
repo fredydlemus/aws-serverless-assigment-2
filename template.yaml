@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Serverless assigment-2
+Parameters:
+  ApiGatewayStageName:
+    Type: String
+    Default: Dev
+    Description: The name of the stage for the API Gateway
+Resources:
+  ApiGatewayAssigment2:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: !Ref ApiGatewayStageName
