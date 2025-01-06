@@ -22,3 +22,11 @@ Resources:
         - x86_64
       MemorySize: 128
       Timeout: 30
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /
+            Method: post
+            RestApiId: !Ref ApiGatewayAssigment2
+          
