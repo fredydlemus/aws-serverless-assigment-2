@@ -40,7 +40,7 @@ Resources:
                       "extraField": "12345"
                     }
                 responses:
-                  Default:
+                  default:
                     statusCode: 200
 
 
