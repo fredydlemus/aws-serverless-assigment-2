@@ -22,6 +22,10 @@ Resources:
               responses:
                 "200":
                   Description: "Successful operation"
+                  content:
+                    application/json:
+                      schema:
+                        type: object
                 "500":
                   Description: "Internal Server Error"
               x-amazon-apigateway-integration:
@@ -38,10 +42,6 @@ Resources:
                 responses:
                   Default:
                     statusCode: 200
-                  content:
-                    application/json:
-                      schema:
-                        type: object
 
 
   LambdaFunctionAssigment2:
