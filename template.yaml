@@ -16,9 +16,14 @@ Resources:
         info:
           title: "No Proxy Integration Example"
           version: 1.0
+        x-amazon-apigateway-request-validators:
+          ValidateBody:
+            validateRequestBody: true
+            validateRequestParameters: false
         paths:
           /:
             post:
+              x-amazon-apigateway-request-validator: ValidateBody
               responses:
                 "200":
                   Description: "Successful operation"
