@@ -27,7 +27,7 @@ Resources:
                 requestTemplates:
                   application/json: |
                     {
-                      "body": "$input.body",
+                      "body": "$util.escapeJson($input.body)",
                       "extraField": "12345"
                     }
                 responses:
