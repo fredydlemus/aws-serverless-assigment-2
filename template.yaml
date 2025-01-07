@@ -19,6 +19,7 @@ Resources:
         paths:
           /:
             post:
+
               x-amazon-apigateway-integration:
                 type: aws
                 uri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${LambdaFunctionAssigment2.Arn}/invocations"
@@ -27,7 +28,7 @@ Resources:
                 requestTemplates:
                   application/json: |
                     {
-                      "body": "$input.json('$')",
+                      "body": $input.json('$'),
                       "extraField": "12345"
                     }
                 responses:
