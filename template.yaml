@@ -54,6 +54,12 @@ Resources:
                 responses:
                   default:
                     statusCode: 200
+                    responseTemplates:
+                      application/json: |
+                        {
+                          "message": "Success"
+                          "data": $input.json('$')
+                        }
         components:
           schemas:
             ExampleSchema:
