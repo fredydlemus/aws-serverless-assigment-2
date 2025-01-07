@@ -19,7 +19,11 @@ Resources:
         paths:
           /:
             post:
-
+              responses:
+                "200":
+                  Description: "Successful operation"
+                "500":
+                  Description: "Internal Server Error"
               x-amazon-apigateway-integration:
                 type: aws
                 uri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${LambdaFunctionAssigment2.Arn}/invocations"
