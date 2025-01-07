@@ -38,6 +38,10 @@ Resources:
                 responses:
                   Default:
                     statusCode: 200
+                  content:
+                    application/json:
+                      schema:
+                        type: object
 
 
   LambdaFunctionAssigment2:
