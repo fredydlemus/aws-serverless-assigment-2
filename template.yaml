@@ -11,6 +11,29 @@ Resources:
     Type: AWS::Serverless::Api
     Properties:
       StageName: !Ref ApiGatewayStageName
+      DefinitionBody:
+        openapi: 3.0.1
+        info:
+          title: "No Proxy Integration Example"
+          version: 1.0
+        paths:
+          /:
+            post:
+              x-amazon-apigateway-integration:
+                type: aws
+                uri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${LambdaFunctionAssigment2.Arn}/invocations"
+                httpMethod: POST
+                passthroughBehaviour: "WHEN_NO_TEMPLATES"
+                requestTemplates:
+                  application/json: |
+                    {
+                      "body": "$input.body",
+                      "extraField": "12345"
+                    }
+                responses:
+                  Default:
+                    statusCode: 200
+
 
   LambdaFunctionAssigment2:
     Type: AWS::Serverless::Function
@@ -29,4 +52,5 @@ Resources:
             Path: /
             Method: post
             RestApiId: !Ref ApiGatewayAssigment2
+
           
