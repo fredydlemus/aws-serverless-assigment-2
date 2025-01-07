@@ -24,6 +24,13 @@ Resources:
           /:
             post:
               x-amazon-apigateway-request-validator: ValidateBody
+              requestBody:
+                Description: "payload"
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: "#/components/schemas/ExampleSchema"
               responses:
                 "200":
                   Description: "Successful operation"
@@ -47,7 +54,21 @@ Resources:
                 responses:
                   default:
                     statusCode: 200
-
+        components:
+          schemas:
+            ExampleSchema:
+              type: object
+              Properties:
+                name:
+                  tpye: String
+                  Description: "User name"
+                email:
+                  type: String
+                  format: email
+                  Description: "user email"
+              required:
+                - name
+                - email
 
   LambdaFunctionAssigment2:
     Type: AWS::Serverless::Function
